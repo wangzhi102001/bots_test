@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c19e233a-768e-4ac4-8024-dd2e7a2aedf5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>bots_test.py</StartupFile>
+    <StartupFile>changderibao.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="bots_test.py" />
+    <Compile Include="changderibao.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fangfa.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
