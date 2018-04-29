@@ -30,7 +30,7 @@ def getText(url):
         content_news = bsObj.find("td",{"class":"xilan_content_tt"})
     #news = {'link':url,'bt1':title_one_news.get_text(),'bt2':title_two_news.get_text(),'content':content_news.get_text()}
     news = {'link':url,'bt1':title_one_news,'bt2':title_two_news,'body':content_news}
-    #sleep(0.5)
+    sleep(0.5)
     return news
 
 def findWithDate(date,urls_ban,urls_news):
@@ -86,7 +86,7 @@ def saveToJson(list,filename):
 
 
 def date_add(date):
-    new_date = datetime.date(date[:4],date[4:6],date[-2:])+datetime.timedelta(days = 1)
+    new_date = datetime.date(int(date[:4]),int(date[4:6]),int(date[-2:]))+datetime.timedelta(days = 1)
     new_date_formated = time.strftime('%Y%m%d',time.strftime(new_date))
     return new_date_formated
 

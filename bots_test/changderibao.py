@@ -15,7 +15,7 @@ js_list = []
 keyword = ''
 links=[]
 b = True
-num =120
+num =20
 
 #while True and num>=0:
 #    date_need = ff.getdate(b)
@@ -64,7 +64,7 @@ for link in links:
         print('%s已写入' % link)
         sleep(1)
     if length>=40:
-        #sleep(0.5)
+        sleep(0.5)
         length = 0
 
 ff.saveToJson(js_list,json_name)
