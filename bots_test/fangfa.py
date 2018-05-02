@@ -87,7 +87,7 @@ def saveToJson(list,filename):
 
 def date_add(date):
     new_date = datetime.date(int(date[:4]),int(date[4:6]),int(date[-2:]))+datetime.timedelta(days = 1)
-    new_date_formated = time.strftime('%Y%m%d',time.strftime(new_date))
+    new_date_formated = time.strftime('%Y%m%d',time.struct_time(new_date))
     return new_date_formated
 
 def screeningUrl(urls_news,keyword):
