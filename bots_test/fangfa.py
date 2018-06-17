@@ -7,6 +7,11 @@ import datetime
 import time
 import re
 import requests
+import codecs
+
+
+
+
 
 def getLinksFrom_Ban(date,url_ban,headers):
     '''从BS对象获取整版所有新闻链接尾的列表'''
@@ -59,6 +64,7 @@ def getbsObj(url,headers):
     try:
         session = requests.Session()
         req = session.get(url,headers = headers)
+        req.encoding = 'utf-8' #编码问题的关键
         bsObj = BeautifulSoup(req.text,"lxml")
     except AttributeError as e:
         return None
@@ -79,17 +85,31 @@ def typeDate(news):
 
 
 def saveToTxt(news,filename):
-    with open(filename,'a',errors='ignore') as f_obj:
+    f_obj = codecs.open(filename,'a',encoding= 'utf-8',errors='ignore')#编码问题的关键
+    f_obj.write(str(news['link']) + '\r\n')
+    f_obj.write(str(news['bt1']) + '\r\n')
+    f_obj.write(str(news['bt2']) + '\r\n')
+    f_obj.write(str(news['body']) + '\r\n')
+    f_obj.write('\r\n')
+    f_obj.close()
+    
+    #with open(filename,'a',errors='ignore') as f_obj:
         
-        f_obj.write(str(news['link']) + '\n')
-        f_obj.write(str(news['bt1']) + '\n')
-        f_obj.write(str(news['bt2']) + '\n')
-        f_obj.write(str(news['body']) + '\n')
-        f_obj.write('\n')
+        #f_obj.write(str(news['link']) + '\n')
+        #f_obj.write(str(news['bt1']) + '\n')
+        #f_obj.write(str(news['bt2']) + '\n')
+        #f_obj.write(str(news['body']) + '\n')
+    #    f_obj.write('\n')
         
 def saveToJson(list,filename):
-    with open(filename,'w') as f:
-        f.write(json.dumps(list,ensure_ascii=False)+"\n")
+    f=codecs.open(filename,'w',encoding='utf-8',errors='ignore') #编码问题的关键
+    contents = str(json.dumps(list,ensure_ascii=False))
+    f.write(contents)    
+    f.close()
+    
+    
+    #with open(filename,'w',errors='ignore') as f:
+    #    f.write(json.dumps(list,ensure_ascii=False)+"\n")
 
 
 def date_add(date):

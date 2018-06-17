@@ -66,7 +66,7 @@ while True and num >= 0:
 
         
 
-for link in links[:5]:
+for link in links[:]:
     
     if ff.getText(link,headers)['bt1'] != '':
         content = ff.typeDate(ff.getText(link,headers))
