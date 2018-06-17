@@ -21,7 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bots_test.py" />
     <Compile Include="changderibao.py">
       <SubType>Code</SubType>
     </Compile>
